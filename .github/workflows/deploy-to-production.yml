@@ -36,7 +36,7 @@ jobs:
     
     - name: Deploy to EKS
       run: |
-        echo "$KUBECONFIG_FILE" | base64 --decoded > kubeconfig.yaml
+        echo "$KUBECONFIG_FILE" | base64 --decode > kubeconfig.yaml
         export KUBECONFIG=kubeconfig.yaml
         envsubst < k8s/secret.yml > secret.yml && kubectl replace --force -f secret.yml || kubectl apply -f secret.yml
         envsubst < k8s/deployment.yml > deployment.yml && kubectl apply -f deployment.yml
