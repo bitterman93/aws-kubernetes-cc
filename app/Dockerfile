@@ -2,7 +2,7 @@ FROM node:15 as builder
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
-COPY ..
+COPY . .
 RUN npm run builder
 FROM nginx:stable-apine
 RUN rm -rf /usr/share/nginx/html/*
