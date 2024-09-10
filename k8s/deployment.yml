@@ -18,17 +18,16 @@ spec:
         image: "${DOCKER_HUB_USERNAME}/${IMAGE_NAME}:${GITHUB_SHA}"
         ports:
         - containerPort: 3000
-      env:
-      - name: MY_SECRET
-        valueFrom:
-          secretKeyRef: 
-            name: ${IMAGE_NAME}-secret
-            key: MY_SECCRET
-      resources:
-        limits: 
-          memory: "512Mi"
-          cpu: "500m"
-        requests:
-          memory: "256Mi"
-          cpu: "250m"
-
+        env:
+        - name: MY_SECRET
+          valueFrom:
+            secretKeyRef: 
+              name: ${IMAGE_NAME}-secret
+              key: MY_SECCRET
+        resources:
+          limits: 
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
