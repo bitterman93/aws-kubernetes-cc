@@ -8,4 +8,4 @@ FROM nginx:stable-apine
 RUN rm -rf /usr/share/nginx/html/*
 COPY --from=builder /app/build /usr/share/nginx/html/
 EXPOSE 8080
-CMD{"nginx", "-g", "daemon off;"}
+CMD ["nginx", "-g", "daemon off;"]
