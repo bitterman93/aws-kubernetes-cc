@@ -43,7 +43,7 @@ jobs:
         envsubst < k8s/service.yml > service.yml && kubectl apply -f service.yml
       env:
         KUBECONFIG_FILE: ${{ secrets.KUBECONFIG_FILE }}
-        DOCKER_HUB_NAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+        DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
         IMAGE_NAME: ${{ vars.IMAGE_NAME }}
         SECRET: ${{ secrets.K8S_SECRET }}
         GITHUB_SHA: ${{ github.sha }}
