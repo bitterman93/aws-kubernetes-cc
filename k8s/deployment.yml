@@ -23,7 +23,7 @@ spec:
           valueFrom:
             secretKeyRef: 
               name: ${IMAGE_NAME}-secret
-              key: MY_SECCRET
+              key: MY_SECRET
         resources:
           limits: 
             memory: "512Mi"
