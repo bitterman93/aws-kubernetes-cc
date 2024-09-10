@@ -46,3 +46,4 @@ jobs:
         DOCKER_HUB_NAME: ${{ secrets.DOCKER_HUB_USERNAME }}
         IMAGE_NAME: ${{ vars.IMAGE_NAME }}
         SECRET: ${{ secrets.K8S_SECRET }}
+        GITHUB_SHA: ${{ github.sha }}
