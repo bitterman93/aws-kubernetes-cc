@@ -1,4 +1,4 @@
-name: CI, build and test
+name: Deploy to EKS
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
         - main
 
 jobs:
-  build-test-analyze:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -41,3 +41,8 @@ jobs:
         envsubst < k8s/secret.yml > secret.yml && kubectl replace --force -f secret.yml || kubectl apply -f secret.yml
         envsubst < k8s/deployment.yml > deployment.yml && kubectl apply -f deployment.yml
         envsubst < k8s/service.yml > service.yml && kubectl apply -f service.yml
+      env:
+        KUBECONFIG_FILE: ${{ secrets.KUBECONFIG_FILE }}
+        DOCKER_HUB_NAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+        IMAGE_NAME: ${{ vars.IMAGE_NAME }}
+        SECRET: ${{ secrets.K8S_SECRET }}
