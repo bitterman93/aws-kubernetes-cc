@@ -13,12 +13,12 @@ jobs:
     - name: Chekout code
       uses: actions/checkout@v2
 
-    - name: SetUp Node JS
+    - name: SetUp NodeJS
       uses: actions/setup-node@v3
       with:
         node-version: 15.5.1
-        cache: 'npm'
-        cache-dependency-path: '**package-lock.json'
+        #cache: 'npm'
+        #cache-dependency-path: '**package-lock.json'
 
     - name: Install dependencies
       run: npm ci
